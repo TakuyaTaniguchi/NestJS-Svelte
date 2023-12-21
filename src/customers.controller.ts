@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-
+import { Controller, Get,Req,Query } from '@nestjs/common';
+import { Request } from 'express';
 
 @Controller('customers')
 export class CustomerController {
@@ -10,7 +10,7 @@ export class CustomerController {
     return 'My Name is Tom'
   }
   @Get('user')
-  callUsesr(): string {
-    return 'My Name is user'
+  callUsesr(@Query('id') id: number, @Req() request: Request): string {
+    return `My Name is user_ ${id}`
   }
 }
