@@ -14,6 +14,10 @@ export class CustomerService {
         return `${customer.id}/${customer.name}だよ`
     }
 
+    findOn(id:number){
+        return id
+    }
+
     // findAll(): Customer[] {
     //     return this.customers
     // }

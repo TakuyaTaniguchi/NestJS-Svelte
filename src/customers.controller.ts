@@ -1,4 +1,4 @@
-import { Controller, Get,Post,Req,Query,Param ,Body} from '@nestjs/common';
+import { Controller, Get,Post,Req,Query,Param ,Body ,ParseIntPipe} from '@nestjs/common';
 import { Request } from 'express';
 import { CreateCustomerDto } from './create-customer.dto'
 import { Customer } from './interfaces/customers.interface'
@@ -36,8 +36,8 @@ export class CustomerController {
     return `yes_Query__ ${id}`
   }
   @Get('user/member/:id')
-  callUsesrMember(@Query('sort') sort: string, @Param() params): string {
-    return `params:${params.id}_Query:${sort}`
+  callUsesrMember(@Query('sort') sort: string,  @Param('id', ParseIntPipe) id: number) {
+     return this.customerService.findOn(id)
   }
   @Post('user')
   create(@Body() createCustomerDto:CreateCustomerDto): string {
