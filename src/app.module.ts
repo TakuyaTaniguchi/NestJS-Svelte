@@ -5,10 +5,17 @@ import { CustomerController } from './customers.controller'
 import { AppService } from './app.service';
 import { CustomerModule } from './customers/customers.module'
 import { CustomerService } from './customers.service'
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-
+import { AppDataSource } from './data-source'
+import { ConfigModule } from '@nestjs/config';
+ 
 @Module({
-  imports: [CustomerModule],
+  imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot(AppDataSource.options),
+    CustomerModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -19,12 +26,3 @@ export class AppModule implements NestModule {
       .forRoutes('customer');
   }
 }
-
-/**
- * 
-@Module({
-  imports: [CommonModule],
-  exports: [CommonModule],
-})
-export class CoreModule {}
-*/
