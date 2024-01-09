@@ -7,7 +7,13 @@ export class AppController {
 
   @Get()
   @Render('index')
-  root() {
-    return { message: 'Hello world!' };
+  index() {
+    return {
+       message: 'Hello world!!!! Nest' ,
+       user : {
+        id: 100,
+        name: 'taro'
+       }
+    };
   }
 }
