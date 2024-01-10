@@ -40,9 +40,22 @@ export class CustomerController {
     return this.customerService.findOneBy()
   }
 
-  @Post()
+  @Post('edit')
+  editCustomer(@Body() id:number) {
+    // curl http://localhost:3000/customers/edit
+    return this.customerService.edit()
+  }
+
+  @Post('remove')
+  remove(){
+    // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
+    return this.customerService.remove()
+  }
+
+  @Post('add')
   addCustomer(@Body() customer: ICustomer){
     // dbにCustomerを追加する
+    // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
     this.customerService.add({
       id:customer.id,
       firstName: customer.firstName,

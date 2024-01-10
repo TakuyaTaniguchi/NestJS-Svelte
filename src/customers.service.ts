@@ -20,7 +20,7 @@ export class CustomerService {
 
     /**
      * 
-     * @param param0 
+     * @param {ICustomer} customer 
      * customerを追加する
      */
     add(customer:ICustomer):Promise<Customer>{
@@ -32,8 +32,12 @@ export class CustomerService {
         })
     }
 
+    /**
+     * 
+     * customerを取得する
+     */
+
     async findOneBy(){
-        
         const data = await this.customerRepository.findOne({
             where: {
                 id: 100
@@ -41,6 +45,25 @@ export class CustomerService {
         })
 
         return data
+    }
+
+    /**
+     * customerを編集する
+     */
+
+    edit( ):Promise<Customer>{
+        // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/edit
+        return this.customerRepository.save<ICustomer>({
+            id: 100,
+            firstName: 'ファーストネーム',
+            lastName: 'ラストネーム',
+            isActive: false,
+        })
+    }
+
+    remove() {
+        // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
+        return this.customerRepository.delete(101)
     }
   
 }
