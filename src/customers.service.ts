@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository  } from '@nestjs/typeorm';
 import { Repository,DataSource } from 'typeorm';
-// import { Customer } from './interfaces/customers.interface' // 名前衝突する
+import { ICustomer } from './interfaces/customers.interface'
 import { Customer } from './customer.entity'
  
 @Injectable()
@@ -23,34 +23,26 @@ export class CustomerService {
      * @param param0 
      * customerを追加する
      */
-    add({
-        id,
-        firstName,
-        lastName,
-        isActive
-    }){
-        this.customerRepository.save({
-            id: id,
-            firstName: firstName,
-            lastName: lastName,
-            isActive: isActive,
+    add(customer:ICustomer):Promise<Customer>{
+        return this.customerRepository.save<ICustomer>({
+            id: customer.id,
+            firstName: customer.firstName,
+            lastName: customer.lastName,
+            isActive: customer.isActive,
         })
     }
 
     async findOneBy(){
-        // 取得できるようにする
-        await this.customerRepository.findOneBy({})
-    }
-  
-
-    
-    findOn(id: number) {
-        return this.customerRepository.findOne({
+        
+        const data = await this.customerRepository.findOne({
             where: {
-                id: id
+                id: 100
             }
         })
+
+        return data
     }
+  
 }
 
 

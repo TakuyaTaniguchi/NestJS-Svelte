@@ -1,6 +1,5 @@
-export interface Customer {
+export interface ICustomer {
     id: number
-    name: string
     firstName: string,
     lastName: string,
     isActive: boolean
