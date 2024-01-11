@@ -5,14 +5,20 @@
     <title>App</title>
   </head>
   <body>
-    {{ data.id }}</br>
-    {{ data.firstName}},
-    {{data.lastName}}
-    {{data.lastName}},
-
-    {{ message }}</br>
-    ID:{{ user.id }}</br>
-    NAME:{{ user.name }}
-
+    <div class="container">
+      <div class="inner">
+        <form id="form" class="form" method="post">
+          <div class="section">
+            <label>firstName</label>
+            <input type="" aria-label="firstname" placeholder="ファーストネーム">
+          </div>
+          <div class="section">
+            <label>lastName</label>
+            <input type="" aria-label="lastname" placeholder="ラストネーム">
+          </div>
+          <button type="submit" class="submit">登録</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
