@@ -7,16 +7,18 @@
   <body>
     <div class="container">
       <div class="inner">
-        <form id="form" class="form" method="post">
-          <div class="section">
-            <label>firstName</label>
-            <input type="" aria-label="firstname" placeholder="ファーストネーム">
+        <form action="customers/add" method="post" class="form-example">
+          <div class="form-example">
+            <label for="firtstname">Enter your firtstname: </label>
+            <input type="text" name="firtstname" id="firtstname"  />
           </div>
-          <div class="section">
-            <label>lastName</label>
-            <input type="" aria-label="lastname" placeholder="ラストネーム">
+          <div class="form-example">
+            <label for="lastname">Enter your lastname: </label>
+            <input type="text" name="lastname" id="lastname"  />
           </div>
-          <button type="submit" class="submit">登録</button>
+          <div class="form-example">
+            <input type="submit" value="add" />
+          </div>
         </form>
       </div>
     </div>
