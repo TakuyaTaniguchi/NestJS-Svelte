@@ -78,7 +78,7 @@ export class CustomerController {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":100, "firstName":"taro","lastName":"tanaka","isActive":true }' http://localhost:3000/customers/
     // curl -X POST -H "Content-Type: application/json" -d '{"name":"taro", "Age":"30"}' http://localhost:3000/customers/user
     console.log(createCustomerDto)
-    return 'This action adds a new cat';
+    return 'This action a new cat';
   }
   
 }
