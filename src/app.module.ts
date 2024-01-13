@@ -1,4 +1,4 @@
-import { Module , NestModule, MiddlewareConsumer} from '@nestjs/common';
+import { Module , NestModule, MiddlewareConsumer, Global} from '@nestjs/common';
 import { LoggerMiddleware } from './logger.middleware'
 import { AppController } from './app.controller';
 import { CustomerController } from './customers.controller'
@@ -7,16 +7,20 @@ import { CustomerModule } from './customers/customers.module'
 import { CustomerService } from './customers.service'
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AppDataSource } from './data-source'
+import { TypeOrmConfigService } from './data-source'
 import { ConfigModule } from '@nestjs/config';
  
+@Global()
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: `.env`,
     }),
-    TypeOrmModule.forRoot(AppDataSource.options),
+    TypeOrmModule.forRootAsync({
+      useClass: TypeOrmConfigService
+    }),
+
     CustomerModule
   ],
   controllers: [AppController],
