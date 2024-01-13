@@ -1,5 +1,7 @@
 import { DataSource } from 'typeorm';
 import { Customer } from './customer.entity';
+// classを作ってenvを返す
+import { ConfigService } from '@nestjs/config';
 
 export const AppDataSource = new DataSource({
     type: 'mysql',
