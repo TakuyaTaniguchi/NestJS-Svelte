@@ -1,6 +1,5 @@
-import { DataSource } from 'typeorm';
 import { Customer } from './customer.entity';
-import { ConfigService ,registerAs} from '@nestjs/config';
+import { ConfigService } from '@nestjs/config';
 
 
 import { Injectable } from '@nestjs/common'
