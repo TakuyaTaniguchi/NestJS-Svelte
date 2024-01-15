@@ -1,7 +1,7 @@
 // https://zenn.dev/kisihara_c/books/nest-officialdoc-jp/viewer/overview-providers#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9
 import { Injectable } from '@nestjs/common'
 import { InjectRepository  } from '@nestjs/typeorm';
-import { Repository,DataSource } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ICustomer } from './interfaces/customers.interface'
 import { Customer } from './customer.entity'
  
