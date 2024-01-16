@@ -4,6 +4,3 @@
 <div>
     <Header title="+pageSvelte"/>
 </div>
-
-<style>
-</style>
