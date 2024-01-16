@@ -40,7 +40,7 @@ export class CustomerService {
     async findOneBy(){
         const data = await this.customerRepository.findOne({
             where: {
-                id: 100
+                id: 3371
             }
         })
 
