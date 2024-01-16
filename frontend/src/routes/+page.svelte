@@ -3,10 +3,10 @@
     import { onMount } from 'svelte'
 
     onMount(async ()=>{
-        // TODO:corsで今はアクセスできない
         const response = await fetch('http://localhost:3000/customers/sample');
         const data = await response.json();
         console.log(data);
+        console.log(data.id);
     })
 </script>
 <div>
