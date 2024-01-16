@@ -4,8 +4,9 @@
         <a href="/about">About</a>
         <a href="/settings">Settings</a>
     </nav>
-
-    <slot></slot>
+    <main>
+        <slot></slot>
+    </main>
 
     <footer class="footer">
         <div>
