@@ -1,12 +1,7 @@
-<script context="module" lang="ts">
-    export type Item = {
-        id: number,
-        firstName: string,
-        lastName: string
-    }
-</script>
 <script lang="ts">
     import  Header  from '$lib/Header.svelte'
+    import CustomerList from '$lib/CustomerList.svelte'
+    import { type Item } from '$lib/types/index'
     import { onMount } from 'svelte'
 
     let item : Item
@@ -15,26 +10,19 @@
         const response = await fetch('http://localhost:3000/customers/sample');
         const data = await response.json() as Item;
         item = data
-
     })
+
+    function add(text:string){
+        console.log(text)
+    }
 </script>
 
-<style>
-.container {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
-  align-content: stretch;
-  justify-content: space-around;
-}
-
-</style>
 
 <div>
     <Header title="+pageSvelte"/>
     <div class="container">
         <div class="inner">
-          <form action="customers/add" method="post" class="form-example">
+          <div class="form-example">
             <div class="form-example">
               <label for="firstName">Enter your firstName: </label>
               <input type="text" name="firstName" id="firstName"  />
@@ -44,30 +32,25 @@
               <input type="text" name="lastname" id="lastname"  />
             </div>
             <div class="form-example">
-              <input type="submit" value="add" />
+              <button value="add"  on:click={()=>{
+                add('test')
+            }}>Add</button>
             </div>
-          </form>
+          </div>
         </div>
         <div class="inner">
-          <h2>登録ユーザー</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>firstName</th>
-                <th>lastname</th>
-              </tr>
-            </thead>
-            <tbody>
-              {#if item }
-                <tr>
-                  <td>{item.id}</td>
-                  <td>{item.firstName}</td>
-                  <td>{item.lastName}</td>
-                </tr>
-              {/if}
-            </tbody>
-          </table>
+          <CustomerList name={'登録ユーザー'} item={item}/>
         </div>
       </div>
 </div>
+
+<style>
+  .container {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-around;
+  }
+  
+  </style>
