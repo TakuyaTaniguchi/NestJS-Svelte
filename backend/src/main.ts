@@ -2,17 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
-
-const allowlist = ['http://localhost:5173/']
-const corsOptionsDelegate = function (req, callback) {
-  let corsOptions;
-  if (allowlist.indexOf(req.header('Origin')) !== -1) {
-    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false } // disable CORS for this request
-  }
-  callback(null, corsOptions) // callback expects two parameters: error and options
-}
+import { corsOptionsDelegate } from './core/core.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
