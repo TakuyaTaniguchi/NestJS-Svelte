@@ -1,12 +1,15 @@
-<script lang="ts">
-    import  Header  from '$lib/Header.svelte'
-    import { onMount } from 'svelte'
+<script context="module" lang="ts">
     export type Item = {
         id: number,
         firstName: string,
         lastName: string
     }
-    let item : Item;
+</script>
+<script lang="ts">
+    import  Header  from '$lib/Header.svelte'
+    import { onMount } from 'svelte'
+
+    let item : Item
 
     onMount(async ()=>{
         const response = await fetch('http://localhost:3000/customers/sample');
