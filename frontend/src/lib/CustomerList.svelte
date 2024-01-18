@@ -1,8 +1,8 @@
 <script lang="ts">
- import  { type Item}  from '$lib/types/index'
+ import  { type User}  from '$lib/types/index'
 
   export let name : string
-  export let item : Item
+  export let user : User
 </script>
 
 
@@ -10,11 +10,11 @@
   <h2>{name}</h2>
   <table>
     <thead>
-      {#if item }
+      {#if user }
         <tr>
-          <td>{item.id}</td>
-          <td>{item.firstName}</td>
-          <td>{item.lastName}</td>
+          <td>{user.id}</td>
+          <td>{user.firstName}</td>
+          <td>{user.lastName}</td>
         </tr>
       {/if}
     </thead>

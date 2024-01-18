@@ -1,19 +1,28 @@
 <script lang="ts">
     import  Header  from '$lib/Header.svelte'
     import CustomerList from '$lib/CustomerList.svelte'
-    import { type Item } from '$lib/types/index'
+    import { type User } from '$lib/types/index'
     import { onMount } from 'svelte'
 
-    let item : Item
+    let user : User
 
     onMount(async ()=>{
         const response = await fetch('http://localhost:3000/customers/sample');
-        const data = await response.json() as Item;
-        item = data
+        const data = await response.json() as User;
+        user = data
     })
 
-    function add(text:string){
-        console.log(text)
+
+    const add = async (name: string) => {
+        const response = await fetch('http://localhost:3000/customers/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name})
+        })
+        const data = await response.json() as User;
+        user = data
     }
 </script>
 
@@ -39,7 +48,7 @@
           </div>
         </div>
         <div class="inner">
-          <CustomerList name={'登録ユーザー'} item={item}/>
+          <CustomerList name={'登録ユーザー'} user={user}/>
         </div>
       </div>
 </div>
