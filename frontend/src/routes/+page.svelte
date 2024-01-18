@@ -13,16 +13,14 @@
     })
 
 
-    const add = async (name: string) => {
-        const response = await fetch('http://localhost:3000/customers/add', {
+    const add = async (user: User) => {
+        await fetch('http://localhost:3000/customers/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name})
+            body: JSON.stringify({user})
         })
-        const data = await response.json() as User;
-        user = data
     }
 </script>
 
@@ -42,7 +40,11 @@
             </div>
             <div class="form-example">
               <button value="add"  on:click={()=>{
-                add('test')
+                add({
+                  id: 1,
+                  firstName: 'test',
+                  lastName: 'test'
+                })
             }}>Add</button>
             </div>
           </div>

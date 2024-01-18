@@ -56,11 +56,12 @@ export class CustomerController {
   addCustomer(@Body() customer: ICustomer){
     // dbにCustomerを追加する
     // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
+    // customer['user'].firstName アクセスしたい構造が違うので治す 
     this.customerService.add({
       id: Math.floor(Math.random() * 10000) + 1, //とりあえず
-      firstName: customer.firstName,
-      lastName: customer.lastName,
-      isActive: customer.isActive
+      firstName: customer['user'].firstName,
+      lastName: customer['user'].lastName,
+      isActive: true
       })
   }
 
