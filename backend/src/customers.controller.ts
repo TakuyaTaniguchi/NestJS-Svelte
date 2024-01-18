@@ -22,7 +22,7 @@ export class CustomerController {
   @Get()
   @Render('index')
   async index(@Body() customer: ICustomer) {
-    const data = await this.customerService.findOneBy()
+    const data = await this.customerService.find()
 
     return {
       data: data,
@@ -37,7 +37,7 @@ export class CustomerController {
   @Get('sample')
   getCustomer(@Body() id:number) {
     // curl http://localhost:3000/customers/sample
-    return this.customerService.findOneBy()
+    return this.customerService.find()
   }
 
   @Post('edit')
@@ -67,7 +67,8 @@ export class CustomerController {
 
 
   @Get('user')
-  callUsesr(@Query('id') id: number, @Req() request: Request): string {
+  callUsesr(@Query('id') id: number): string {
+    console.log(id);
     return `yes_Query__ ${id}`
   }
   @Get('user/member/:id')

@@ -2,7 +2,7 @@
  import  { type User}  from '$lib/types/index'
 
   export let name : string
-  export let user : User
+  export let users : User[]
 </script>
 
 
@@ -10,12 +10,17 @@
   <h2>{name}</h2>
   <table>
     <thead>
-      {#if user }
-        <tr>
-          <td>{user.id}</td>
-          <td>{user.firstName}</td>
-          <td>{user.lastName}</td>
-        </tr>
+      {#if users }
+        {#each users as user}
+          <tr>
+            <td>
+              <a href=/customer/{user.id}>{user.id}</a> 
+            </td>
+            <td>{user.firstName}</td>
+            <td>{user.lastName}</td>
+          </tr>
+        {/each}
+
       {/if}
     </thead>
     <tbody>

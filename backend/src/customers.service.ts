@@ -37,13 +37,9 @@ export class CustomerService {
      * customerを取得する
      */
 
-    async findOneBy(){
-        const data = await this.customerRepository.findOne({
-            where: {
-                id: 3371
-            }
-        })
-
+    async find(){
+        const data = await this.customerRepository.find()
+        console.log(data)
         return data
     }
 

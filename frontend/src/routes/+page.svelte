@@ -4,12 +4,12 @@
     import { type User } from '$lib/types/index'
     import { onMount } from 'svelte'
 
-    let user : User
+    let users : User[]
 
     onMount(async ()=>{
         const response = await fetch('http://localhost:3000/customers/sample');
-        const data = await response.json() as User;
-        user = data
+        const data = await response.json() as User[];
+        users = data
     })
 
 
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="inner">
-          <CustomerList name={'登録ユーザー'} user={user}/>
+          <CustomerList name={'登録ユーザー'} users={users}/>
         </div>
       </div>
 </div>
