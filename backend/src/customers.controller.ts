@@ -58,7 +58,7 @@ export class CustomerController {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
     // customer['user'].firstName アクセスしたい構造が違うので治す 
     this.customerService.add({
-      id: Math.floor(Math.random() * 10000) + 1, //とりあえず
+      id: customer['user'].id, //とりあえず
       firstName: customer['user'].firstName,
       lastName: customer['user'].lastName,
       isActive: true

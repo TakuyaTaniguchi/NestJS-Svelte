@@ -2,16 +2,19 @@
     import  Header  from '$lib/Header.svelte'
     import CustomerList from '$lib/CustomerList.svelte'
     import { type User } from '$lib/types/index'
-    import type { SvelteHTMLElements  } from 'svelte/elements';
     import { onMount } from 'svelte'
 
     let users : User[]
+    let id : number
+    let firstName : string
+    let lastName : string
 
     onMount(async ()=>{
         const response = await fetch('http://localhost:3000/customers/sample');
         const data = await response.json() as User[];
         users = data
     })
+
 
 
     async function  add (user: User) {
@@ -22,6 +25,11 @@
             },
             body: JSON.stringify({user})
         })
+        await new Promise(resolve => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
+        const response = await fetch('http://localhost:3000/customers/sample');
+        const data = await response.json() as User[];
+        console.log(data)
+        users = data
     }
 
     async function removeUser(event: CustomEvent<{id:number}>) {
@@ -34,6 +42,12 @@
       })
       console.log(event.detail.id)
     }
+
+    async function addUser() {
+     
+    }
+
+
 </script>
 
 
@@ -43,21 +57,33 @@
         <div class="inner">
           <div class="form-example">
             <div class="form-example">
+              <label for="inputId">:inputId </label>
+              <input type="number" name="inputId" id="inputId" on:change={
+                (event) => {
+                  id = event.target.value
+                }
+              } />
+            </div>
+            <div class="form-example">
               <label for="firstName">Enter your firstName: </label>
-              <input type="text" name="firstName" id="firstName"  />
+              <input type="text" name="firstName" id="firstName" on:change={
+                (event) => {
+                  firstName = event.target.value
+                }
+              }  />
             </div>
             <div class="form-example">
               <label for="lastname">Enter your lastname: </label>
-              <input type="text" name="lastname" id="lastname"  />
+              <input type="text" name="lastname" id="lastname" on:change={
+                (event) => {
+                  lastName = event.target.value
+                }
+              }  />
             </div>
             <div class="form-example">
               <button value="add"  on:click={()=>{
-                add({
-                  id: 1,
-                  firstName: 'hoge',
-                  lastName: 'tfuga'
-                })
-            }}>Add</button>
+                add({id, firstName, lastName})
+              }}>Add</button>
             </div>
           </div>
         </div>

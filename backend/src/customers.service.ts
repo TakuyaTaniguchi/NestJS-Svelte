@@ -28,7 +28,7 @@ export class CustomerService {
             id: customer.id,
             firstName: customer.firstName,
             lastName: customer.lastName,
-            isActive: customer.isActive,
+            isActive: true,
         })
     }
 
