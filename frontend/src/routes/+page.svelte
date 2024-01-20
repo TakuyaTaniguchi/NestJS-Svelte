@@ -28,7 +28,6 @@
         await new Promise(resolve => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
         const response = await fetch('http://localhost:3000/customers/users');
         const data = await response.json() as User[];
-        console.log(data)
         users = data
     }
 
@@ -40,7 +39,10 @@
           },
           body: JSON.stringify({id: event.detail.id})
       })
-      console.log(event.detail.id)
+      await new Promise(resolve => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
+        const response = await fetch('http://localhost:3000/customers/users');
+        const data = await response.json() as User[];
+        users = data
     }
 
 
