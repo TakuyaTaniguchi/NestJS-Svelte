@@ -18,13 +18,15 @@
             </td>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>
+            <td>
+              <div>
+                <button type="button">remove</button>
+              </div>
+            </td>            
           </tr>
         {/each}
-
       {/if}
     </thead>
-    <tbody>
-   
-    </tbody>
   </table>
+
 </div>

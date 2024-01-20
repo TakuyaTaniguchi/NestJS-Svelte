@@ -13,7 +13,7 @@
     })
 
 
-    const add = async (user: User) => {
+    async function  add (user: User) {
         await fetch('http://localhost:3000/customers/add', {
             method: 'POST',
             headers: {
@@ -22,11 +22,18 @@
             body: JSON.stringify({user})
         })
     }
+
+    function clickHandler() {
+        console.log('The button was clicked');
+    }
+
+    // 消せるようにする
 </script>
 
 
 <div>
     <Header title="+pageSvelte"/>
+    <button on:click={clickHandler}>カウント</button>
     <div class="container">
         <div class="inner">
           <div class="form-example">
@@ -42,8 +49,8 @@
               <button value="add"  on:click={()=>{
                 add({
                   id: 1,
-                  firstName: 'test',
-                  lastName: 'test'
+                  firstName: 'hoge',
+                  lastName: 'tfuga'
                 })
             }}>Add</button>
             </div>

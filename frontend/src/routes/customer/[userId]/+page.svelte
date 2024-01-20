@@ -4,8 +4,9 @@
   export let id : string
 
   onMount(() => {
-    // $paramsからuserIdを取得
     id = $page.params.userId
+
+    // 詳細ページの情報を取得する
     
   });
 </script>
