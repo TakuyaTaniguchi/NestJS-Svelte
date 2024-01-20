@@ -9,5 +9,6 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] テスト書いたり
 - [ ] authつくったり    
 - [ ] デザイン触ったり
+  https://sveltematerialui.com/?ref=madewithsvelte.com
 - [ ] svelteのデータの操作をして見たりする 
 - [ ] feacthの処理をモジュール化したりいつもの作業をやる
