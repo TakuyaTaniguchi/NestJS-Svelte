@@ -1,8 +1,16 @@
 <script lang="ts">
- import  { type User}  from '$lib/types/index'
-
+  import  { type User}  from '$lib/types/index'
+  import { createEventDispatcher } from 'svelte'
   export let name : string
   export let users : User[]
+
+  const dispatch = createEventDispatcher<{removeuser:{id:number}}>();
+  function removeuser(id: number) {
+    dispatch('removeuser', {
+      id: id
+    });
+  }
+
 </script>
 
 
@@ -20,7 +28,9 @@
             <td>{user.lastName}</td>
             <td>
               <div>
-                <button type="button">remove</button>
+                <button type="button" on:click={()=>{
+                  removeuser(user.id)
+                }} >remove</button>
               </div>
             </td>            
           </tr>

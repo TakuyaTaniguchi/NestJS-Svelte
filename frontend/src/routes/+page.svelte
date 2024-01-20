@@ -2,6 +2,7 @@
     import  Header  from '$lib/Header.svelte'
     import CustomerList from '$lib/CustomerList.svelte'
     import { type User } from '$lib/types/index'
+    import type { SvelteHTMLElements  } from 'svelte/elements';
     import { onMount } from 'svelte'
 
     let users : User[]
@@ -23,11 +24,15 @@
         })
     }
 
-    function clickHandler() {
+    function clickHandler(event: any ) {
         console.log('The button was clicked');
     }
 
     // 消せるようにする
+
+    function removeUser(event: CustomEvent<{id:number}>) {
+      console.log(event.detail.id)
+    }
 </script>
 
 
@@ -57,7 +62,7 @@
           </div>
         </div>
         <div class="inner">
-          <CustomerList name={'登録ユーザー'} users={users}/>
+          <CustomerList name={'登録ユーザー'} users={users} on:removeuser={removeUser}/>
         </div>
       </div>
 </div>
