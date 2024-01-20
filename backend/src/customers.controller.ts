@@ -34,7 +34,7 @@ export class CustomerController {
    };
   }
 
-  @Get('sample')
+  @Get('users')
   getCustomer(@Body() id:number) {
     // curl http://localhost:3000/customers/sample
     return this.customerService.find()
@@ -66,11 +66,6 @@ export class CustomerController {
   }
 
 
-  @Get('user')
-  callUsesr(@Query('id') id: number): string {
-    // console.log(id);
-    return `yes_Query__ ${id}`
-  }
   @Get('user/member/:id')
   callUsesrMember(@Query('sort') sort: string,  @Param('id', ParseIntPipe) id: number) {
     //  return this.customerService.findOn(id)
