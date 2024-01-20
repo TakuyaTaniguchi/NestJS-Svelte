@@ -47,9 +47,9 @@ export class CustomerController {
   }
 
   @Post('remove')
-  remove(){
+  remove(@Body() id:number){
     // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
-    return this.customerService.remove()
+    this.customerService.remove(id)
   }
 
   @Post('add')
@@ -68,7 +68,7 @@ export class CustomerController {
 
   @Get('user')
   callUsesr(@Query('id') id: number): string {
-    console.log(id);
+    // console.log(id);
     return `yes_Query__ ${id}`
   }
   @Get('user/member/:id')
@@ -79,7 +79,7 @@ export class CustomerController {
   create(@Body() createCustomerDto:CreateCustomerDto): string {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":100, "firstName":"taro","lastName":"tanaka","isActive":true }' http://localhost:3000/customers/
     // curl -X POST -H "Content-Type: application/json" -d '{"name":"taro", "Age":"30"}' http://localhost:3000/customers/user
-    console.log(createCustomerDto)
+    // console.log(createCustomerDto)
     return 'This action a new cat';
   }
   

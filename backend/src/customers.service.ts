@@ -57,9 +57,10 @@ export class CustomerService {
         })
     }
 
-    remove() {
+    remove(id:number) {
+        console.log(id, 'remove')
         // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
-        return this.customerRepository.delete(101)
+        return this.customerRepository.delete(id)
     }
   
 }

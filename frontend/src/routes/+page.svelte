@@ -24,13 +24,14 @@
         })
     }
 
-    function clickHandler(event: any ) {
-        console.log('The button was clicked');
-    }
-
-    // 消せるようにする
-
-    function removeUser(event: CustomEvent<{id:number}>) {
+    async function removeUser(event: CustomEvent<{id:number}>) {
+      await fetch('http://localhost:3000/customers/remove', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({id: event.detail.id})
+      })
       console.log(event.detail.id)
     }
 </script>
@@ -38,7 +39,6 @@
 
 <div>
     <Header title="+pageSvelte"/>
-    <button on:click={clickHandler}>カウント</button>
     <div class="container">
         <div class="inner">
           <div class="form-example">
