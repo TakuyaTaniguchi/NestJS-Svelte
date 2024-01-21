@@ -31,6 +31,17 @@
         users = data
     }
 
+    async function  updateUser (event: CustomEvent<{id:number,firstName: string, lastName: string}>) {
+      console.log(event)
+      // await fetch('http://localhost:3000/customers/edit', {
+      //       method: 'POST',
+      //       headers: {
+      //           'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({user})
+      //   })
+    }
+
     async function removeUser(event: CustomEvent<{id:number}>) {
       await fetch('http://localhost:3000/customers/remove', {
           method: 'POST',
@@ -87,7 +98,7 @@
           </div>
         </div>
         <div class="inner">
-          <CustomerList name={'登録ユーザー'} users={users} on:removeuser={removeUser}/>
+          <CustomerList name={'登録ユーザー'} users={users} on:removeuser={removeUser} on:updateUser={updateUser}/>
         </div>
       </div>
 </div>

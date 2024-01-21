@@ -40,10 +40,19 @@ export class CustomerController {
     return this.customerService.find()
   }
 
+  @Get('user')
+  getUser(@Query('id') id:number) {
+     return this.customerService.findUser(id)
+  }
+
   @Post('edit')
-  editCustomer(@Body() id:number) {
-    // curl http://localhost:3000/customers/edit
-    return this.customerService.edit()
+  editCustomer(@Body() customer: ICustomer) {
+    this.customerService.edit({
+      id: customer.id, //とりあえず
+      firstName: customer.firstName,
+      lastName: customer.lastName,
+      isActive: true
+    })
   }
 
   @Post('remove')
@@ -64,6 +73,8 @@ export class CustomerController {
       isActive: true
       })
   }
+
+
 
 
   @Get('user/member/:id')

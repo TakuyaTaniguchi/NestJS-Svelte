@@ -39,7 +39,17 @@ export class CustomerService {
 
     async find(){
         const data = await this.customerRepository.find()
-        console.log(data)
+        return data
+    }
+
+    /**
+     * custonerを取得する 一人だけ
+     */
+
+    async findUser(id:number){
+        const data = await this.customerRepository.find({
+            where: { id: id } // nullすることで全員を取得できるので後で統合する
+        })
         return data
     }
 
@@ -47,18 +57,22 @@ export class CustomerService {
      * customerを編集する
      */
 
-    edit( ):Promise<Customer>{
+    async edit(customer:ICustomer ){
+
+        const result = await this.customerRepository.update({ id: customer.id }, {
+            firstName: customer.firstName,
+            lastName: customer.lastName,
+        });
         // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/edit
-        return this.customerRepository.save<ICustomer>({
-            id: 100,
-            firstName: 'ファーストネーム',
-            lastName: 'ラストネーム',
-            isActive: false,
-        })
+        // return this.customerRepository.save<ICustomer>({
+        //     id: 100,
+        //     firstName: 'ファーストネーム',
+        //     lastName: 'ラストネーム',
+        //     isActive: false,
+        // })
     }
 
     remove(id:number) {
-        console.log(id, 'remove')
         // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
         return this.customerRepository.delete(id)
     }

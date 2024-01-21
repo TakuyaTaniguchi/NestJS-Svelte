@@ -2,7 +2,7 @@
 - [x] corsを解消するためにserver側にホワイトリスト作る
 - [x] corsをモジュール・環境変数を使っていい感じにする 
 https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/example.env
-- [ ] frontendのフォームから操作する (CRUD)
+- [x] frontendのフォームから操作する (CRUD)
   - [x] userをgetする
     一覧のユーザーIDをリンクにしてuseridのページを表示してその値をとって個別データをgetすr
 - [ ] エラーコントロール
@@ -12,3 +12,4 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   https://sveltematerialui.com/?ref=madewithsvelte.com
 - [ ] svelteのデータの操作をして見たりする 
 - [ ] feacthの処理をモジュール化したりいつもの作業をやる
+- [ ] コード整形ツール入れる
