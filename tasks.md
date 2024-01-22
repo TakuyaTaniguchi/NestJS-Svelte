@@ -6,6 +6,8 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   - [x] userをgetする
     一覧のユーザーIDをリンクにしてuseridのページを表示してその値をとって個別データをgetすr
 - [ ] コードの整理・命名の統一
+- [ ] ciで実行する
+ - コミットと同時にformatする 
 - [ ] Nestの強みのAPIdocを作る 
 - [ ] エラーコントロール
 - [ ] テスト書いたり
