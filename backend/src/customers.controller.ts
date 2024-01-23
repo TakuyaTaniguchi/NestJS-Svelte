@@ -1,14 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Query,
-  Param,
-  Body,
-  ParseIntPipe,
-  Render,
-} from '@nestjs/common';
-import { CreateCustomerDto } from './create-customer.dto';
+import { Controller, Get, Post, Query, Body, Render } from '@nestjs/common';
 import { ICustomer } from './interfaces/customers.interface';
 import { CustomerService } from './customers.service';
 
@@ -26,7 +16,7 @@ export class CustomerController {
 
   @Get()
   @Render('index')
-  async index(@Body() customer: ICustomer) {
+  async index() {
     const data = await this.customerService.find();
 
     return {
@@ -40,7 +30,7 @@ export class CustomerController {
   }
 
   @Get('users')
-  getCustomer(@Body() id: number) {
+  getCustomer() {
     // curl http://localhost:3000/customers/sample
     return this.customerService.find();
   }
@@ -77,20 +67,5 @@ export class CustomerController {
       lastName: customer['user'].lastName,
       isActive: true,
     });
-  }
-
-  @Get('user/member/:id')
-  callUsesrMember(
-    @Query('sort') sort: string,
-    @Param('id', ParseIntPipe) id: number,
-  ) {
-    //  return this.customerService.findOn(id)
-  }
-  @Post('user')
-  create(@Body() createCustomerDto: CreateCustomerDto): string {
-    // curl -X POST -H "Content-Type: application/json" -d '{"id":100, "firstName":"taro","lastName":"tanaka","isActive":true }' http://localhost:3000/customers/
-    // curl -X POST -H "Content-Type: application/json" -d '{"name":"taro", "Age":"30"}' http://localhost:3000/customers/user
-    // console.log(createCustomerDto)
-    return 'This action a new cat';
   }
 }

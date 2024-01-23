@@ -57,7 +57,7 @@ export class CustomerService {
    */
 
   async edit(customer: ICustomer) {
-    const result = await this.customerRepository.update(
+    await this.customerRepository.update(
       { id: customer.id },
       {
         firstName: customer.firstName,
