@@ -5,10 +5,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { corsOptionsDelegate } from './core/core.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(
-    AppModule,
-    { cors: true }
-  );
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: true,
+  });
   app.enableCors(corsOptionsDelegate);
   await app.listen(3000);
   app.useStaticAssets(join(__dirname, '../src', 'public'));

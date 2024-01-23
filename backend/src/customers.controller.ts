@@ -1,17 +1,22 @@
-import { Controller, Get,Post,Req,Query,Param ,Body ,ParseIntPipe, Render} from '@nestjs/common';
-import { Request } from 'express';
-import { CreateCustomerDto } from './create-customer.dto'
-import { ICustomer } from './interfaces/customers.interface'
-import { CustomerService } from './customers.service'
+import {
+  Controller,
+  Get,
+  Post,
+  Query,
+  Param,
+  Body,
+  ParseIntPipe,
+  Render,
+} from '@nestjs/common';
+import { CreateCustomerDto } from './create-customer.dto';
+import { ICustomer } from './interfaces/customers.interface';
+import { CustomerService } from './customers.service';
 
 // https://zenn.dev/kisihara_c/books/nest-officialdoc-jp/viewer/overview-controllers#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9
 
 @Controller('customers')
 export class CustomerController {
-  constructor(
-    private customerService: CustomerService
-    ) {}
-
+  constructor(private customerService: CustomerService) {}
 
   // @Get(':id')
   // call(@Param() params): string {
@@ -22,27 +27,27 @@ export class CustomerController {
   @Get()
   @Render('index')
   async index(@Body() customer: ICustomer) {
-    const data = await this.customerService.find()
+    const data = await this.customerService.find();
 
     return {
       data: data,
-      message: 'Hello world!!!! Nest' ,
-      user : {
-       id: 100,
-       name: 'taro'
-      }
-   };
+      message: 'Hello world!!!! Nest',
+      user: {
+        id: 100,
+        name: 'taro',
+      },
+    };
   }
 
   @Get('users')
-  getCustomer(@Body() id:number) {
+  getCustomer(@Body() id: number) {
     // curl http://localhost:3000/customers/sample
-    return this.customerService.find()
+    return this.customerService.find();
   }
 
   @Get('user')
-  getUser(@Query('id') id:number) {
-     return this.customerService.findUser(id)
+  getUser(@Query('id') id: number) {
+    return this.customerService.findUser(id);
   }
 
   @Post('edit')
@@ -51,42 +56,41 @@ export class CustomerController {
       id: customer.id, //とりあえず
       firstName: customer.firstName,
       lastName: customer.lastName,
-      isActive: true
-    })
+      isActive: true,
+    });
   }
 
   @Post('remove')
-  remove(@Body() id:number){
+  remove(@Body() id: number) {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":100,}' http://localhost:3000/customers/remove
-    this.customerService.remove(id)
+    this.customerService.remove(id);
   }
 
   @Post('add')
-  addCustomer(@Body() customer: ICustomer){
+  addCustomer(@Body() customer: ICustomer) {
     // dbにCustomerを追加する
     // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
-    // customer['user'].firstName アクセスしたい構造が違うので治す 
+    // customer['user'].firstName アクセスしたい構造が違うので治す
     this.customerService.add({
       id: customer['user'].id, //とりあえず
       firstName: customer['user'].firstName,
       lastName: customer['user'].lastName,
-      isActive: true
-      })
+      isActive: true,
+    });
   }
 
-
-
-
   @Get('user/member/:id')
-  callUsesrMember(@Query('sort') sort: string,  @Param('id', ParseIntPipe) id: number) {
+  callUsesrMember(
+    @Query('sort') sort: string,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
     //  return this.customerService.findOn(id)
   }
   @Post('user')
-  create(@Body() createCustomerDto:CreateCustomerDto): string {
+  create(@Body() createCustomerDto: CreateCustomerDto): string {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":100, "firstName":"taro","lastName":"tanaka","isActive":true }' http://localhost:3000/customers/
     // curl -X POST -H "Content-Type: application/json" -d '{"name":"taro", "Age":"30"}' http://localhost:3000/customers/user
     // console.log(createCustomerDto)
     return 'This action a new cat';
   }
-  
 }

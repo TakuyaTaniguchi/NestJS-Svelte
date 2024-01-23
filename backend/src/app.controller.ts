@@ -9,11 +9,11 @@ export class AppController {
   @Render('index')
   index() {
     return {
-       message: 'Hello world!!!! Nest' ,
-       user : {
+      message: 'Hello world!!!! Nest',
+      user: {
         id: 100,
-        name: 'taro'
-       }
+        name: 'taro',
+      },
     };
   }
 }

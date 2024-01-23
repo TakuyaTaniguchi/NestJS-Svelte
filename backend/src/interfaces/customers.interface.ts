@@ -1,6 +1,6 @@
 export interface ICustomer {
-    id: number
-    firstName: string,
-    lastName: string,
-    isActive: boolean
+  id: number;
+  firstName: string;
+  lastName: string;
+  isActive: boolean;
 }
