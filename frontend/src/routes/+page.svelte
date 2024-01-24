@@ -10,7 +10,7 @@
 	let lastName: string;
 
 	onMount(async () => {
-		const response = await fetch('http://localhost:3000/customers/users');
+		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as User[];
 		users = data;
 	});
@@ -24,7 +24,7 @@
 			body: JSON.stringify({ user })
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
-		const response = await fetch('http://localhost:3000/customers/users');
+		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as User[];
 		users = data;
 	}
@@ -51,7 +51,7 @@
 			body: JSON.stringify({ id: event.detail.id })
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
-		const response = await fetch('http://localhost:3000/customers/users');
+		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as User[];
 		users = data;
 	}

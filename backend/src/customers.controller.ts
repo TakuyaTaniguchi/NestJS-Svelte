@@ -14,22 +14,8 @@ export class CustomerController {
   //   return `My Name is Tom_${params.id}`
   // }
 
+
   @Get()
-  @Render('index')
-  async index() {
-    const data = await this.customerService.find();
-
-    return {
-      data: data,
-      message: 'Hello world!!!! Nest',
-      user: {
-        id: 100,
-        name: 'taro',
-      },
-    };
-  }
-
-  @Get('users')
   getCustomer() {
     return this.customerService.find();
   }
