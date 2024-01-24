@@ -105,7 +105,6 @@
 <style>
 	.container {
 		display: flex;
-		align-items: flex-end;
 		flex-direction: row;
 		align-content: stretch;
 		justify-content: space-around;
