@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Query,Param, Body, Render } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Query,
+  Param,
+  Body,
+  Render,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { ICustomer } from './interfaces/customers.interface';
 import { CustomerService } from './customers.service';
 
@@ -9,13 +19,22 @@ export class CustomerController {
   constructor(private customerService: CustomerService) {}
 
   @Get()
-  getCustomers() {
-    return this.customerService.find();
+  async getCustomers() {
+      return await this.customerService.find();
   }
 
   @Get(':id')
   getCustomer(@Param('id') id: number) {
-    return this.customerService.findCustomer(id);
+
+    // idがnumberでない場合はエラーを返す
+    if (typeof id !== 'number') {
+      throw new HttpException('Bad request idが正しくありません', HttpStatus.BAD_REQUEST);
+    }
+    try {
+      return this.customerService.findCustomer(id);
+    } catch (error) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    } 
   }
 
   @Post('update')

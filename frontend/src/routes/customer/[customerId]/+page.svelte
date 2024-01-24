@@ -2,13 +2,13 @@
 	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	let id: number;
+	let id: number | string;
 	let firstName: string;
 	let lastName: string;
 	export let customers: Customer[];
 
 	onMount(async () => {
-		id = Number($page.params.customerId);
+		id = $page.params.customerId;
 		const response = await fetch(`http://localhost:3000/customers/${id}`);
 		const data = await response.json();
 		customers = data;
