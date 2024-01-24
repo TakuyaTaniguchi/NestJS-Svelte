@@ -16,12 +16,12 @@ export class CustomerController {
 
 
   @Get()
-  getCustomer() {
+  getCustomers() {
     return this.customerService.find();
   }
 
   @Get(':id')
-  getUser(@Param('id') id: number) {
+  getCustomer(@Param('id') id: number) {
     return this.customerService.findCustomer(id);
   }
 

@@ -1,21 +1,23 @@
 <script lang="ts">
 	import Header from '$lib/Header.svelte';
 	import CustomerList from '$lib/CustomerList.svelte';
-	import { type User } from '$lib/types/index';
+	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 
-	let users: User[];
+	let users: Customer[];
 	let id: number;
 	let firstName: string;
 	let lastName: string;
 
 	onMount(async () => {
 		const response = await fetch('http://localhost:3000/customers');
-		const data = (await response.json()) as User[];
+		const data = (await response.json()) as Customer[];
 		users = data;
 	});
 
-	async function add(user: User) {
+	async function add(user: Customer) {
+		console.log(JSON.stringify({ user }))
+		
 		await fetch('http://localhost:3000/customers/add', {
 			method: 'POST',
 			headers: {
@@ -25,7 +27,7 @@
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
 		const response = await fetch('http://localhost:3000/customers');
-		const data = (await response.json()) as User[];
+		const data = (await response.json()) as Customer[];
 		users = data;
 	}
 
@@ -52,7 +54,7 @@
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
 		const response = await fetch('http://localhost:3000/customers');
-		const data = (await response.json()) as User[];
+		const data = (await response.json()) as Customer[];
 		users = data;
 	}
 </script>
