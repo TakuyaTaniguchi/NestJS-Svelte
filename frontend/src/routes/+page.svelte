@@ -11,37 +11,25 @@
 
 	onMount(async () => {
 		const response = await fetch('http://localhost:3000/customers');
+		console.log(response)
 		const data = (await response.json()) as Customer[];
 		users = data;
 	});
 
-	async function add(user: Customer) {
-		console.log(JSON.stringify({ user }))
+	async function add(customer: Customer) {
+		console.log(JSON.stringify({ customer }))
 		
 		await fetch('http://localhost:3000/customers/add', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ user })
+			body: JSON.stringify({ customer })
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
 		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as Customer[];
 		users = data;
-	}
-
-	async function updateUser(
-		event: CustomEvent<{ id: number; firstName: string; lastName: string }>
-	) {
-		console.log(event);
-		// await fetch('http://localhost:3000/customers/edit', {
-		//       method: 'POST',
-		//       headers: {
-		//           'Content-Type': 'application/json'
-		//       },
-		//       body: JSON.stringify({user})
-		//   })
 	}
 
 	async function removeUser(event: CustomEvent<{ id: number }>) {
@@ -112,7 +100,6 @@
 				name={'登録ユーザー'}
 				{users}
 				on:removeuser={removeUser}
-				on:updateUser={updateUser}
 			/>
 		</div>
 	</div>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { type User } from '$lib/types/index';
+	import { type Customer } from '$lib/types/index';
 	import { createEventDispatcher } from 'svelte';
 	export let name: string;
-	export let users: User[];
+	export let users: Customer[];
 
 	const dispatch = createEventDispatcher<{ removeuser: { id: number } }>();
 	function removeuser(id: number) {

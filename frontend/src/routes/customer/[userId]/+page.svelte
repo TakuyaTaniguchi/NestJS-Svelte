@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { type User } from '$lib/types/index';
+	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	let id: number;
 	let firstName: string;
 	let lastName: string;
-	export let users: User[];
+	export let users: Customer[];
 
 	onMount(async () => {
 		id = Number($page.params.userId);

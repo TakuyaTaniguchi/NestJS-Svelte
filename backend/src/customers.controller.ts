@@ -47,9 +47,9 @@ export class CustomerController {
     // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
     // customer['user'].firstName アクセスしたい構造が違うので治す
     this.customerService.add({
-      id: customer['user'].id, //とりあえず
-      firstName: customer['user'].firstName,
-      lastName: customer['user'].lastName,
+      id: customer['customer'].id, //とりあえず
+      firstName: customer['customer'].firstName,
+      lastName: customer['customer'].lastName,
       isActive: true,
     });
   }
