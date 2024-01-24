@@ -24,3 +24,5 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   - タイトル
   - 日付
   - 感想文
+- [ ] stripeとか決済システム入れてみる
+- [ ]  authとか入れてみる、
