@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query, Body, Render } from '@nestjs/common';
+import { Controller, Get, Post, Query,Param, Body, Render } from '@nestjs/common';
 import { ICustomer } from './interfaces/customers.interface';
 import { CustomerService } from './customers.service';
 
@@ -20,8 +20,8 @@ export class CustomerController {
     return this.customerService.find();
   }
 
-  @Get('user')
-  getUser(@Query('id') id: number) {
+  @Get(':id')
+  getUser(@Param('id') id: number) {
     return this.customerService.findCustomer(id);
   }
 

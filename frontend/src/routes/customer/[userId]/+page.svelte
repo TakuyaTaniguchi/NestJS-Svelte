@@ -9,7 +9,7 @@
 
 	onMount(async () => {
 		id = Number($page.params.userId);
-		const response = await fetch(`http://localhost:3000/customers/user?id=${id}`);
+		const response = await fetch(`http://localhost:3000/customers/${id}`);
 		const data = await response.json();
 		users = data;
 		firstName = users[0].firstName;
