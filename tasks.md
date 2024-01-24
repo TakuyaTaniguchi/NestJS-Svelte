@@ -18,4 +18,9 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   https://sveltematerialui.com/?ref=madewithsvelte.com
 - [ ] svelteのデータの操作をして見たりする 
 - [ ] feacthの処理をモジュール化したりいつもの作業をやる
-- [ ] コード整形ツール入れる
+- [x] コード整形ツール入れる
+- [ ] customerとは違うDBを作る
+  - 本の感想文とか
+  - タイトル
+  - 日付
+  - 感想文
