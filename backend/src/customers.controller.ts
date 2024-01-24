@@ -8,13 +8,6 @@ import { CustomerService } from './customers.service';
 export class CustomerController {
   constructor(private customerService: CustomerService) {}
 
-  // @Get(':id')
-  // call(@Param() params): string {
-  //   console.log(params.id);
-  //   return `My Name is Tom_${params.id}`
-  // }
-
-
   @Get()
   getCustomers() {
     return this.customerService.find();

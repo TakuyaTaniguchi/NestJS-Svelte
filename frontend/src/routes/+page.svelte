@@ -11,14 +11,11 @@
 
 	onMount(async () => {
 		const response = await fetch('http://localhost:3000/customers');
-		console.log(response)
 		const data = (await response.json()) as Customer[];
 		users = data;
 	});
 
-	async function add(customer: Customer) {
-		console.log(JSON.stringify({ customer }))
-		
+	async function add(customer: Customer) {		
 		await fetch('http://localhost:3000/customers/add', {
 			method: 'POST',
 			headers: {
