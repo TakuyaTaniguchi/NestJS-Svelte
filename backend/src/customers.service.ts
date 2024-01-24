@@ -45,7 +45,7 @@ export class CustomerService {
    * custonerを取得する 一人だけ
    */
 
-  async findUser(id: number) {
+  async findCustomer(id: number) {
     const data = await this.customerRepository.find({
       where: { id: id }, // nullすることで全員を取得できるので後で統合する
     });

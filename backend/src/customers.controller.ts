@@ -22,7 +22,7 @@ export class CustomerController {
 
   @Get('user')
   getUser(@Query('id') id: number) {
-    return this.customerService.findUser(id);
+    return this.customerService.findCustomer(id);
   }
 
   @Post('update')
