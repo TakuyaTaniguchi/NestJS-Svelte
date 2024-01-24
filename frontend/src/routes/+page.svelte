@@ -32,7 +32,7 @@
 		users = data;
 	}
 
-	async function removeUser(event: CustomEvent<{ id: number }>) {
+	async function removeCustomer(event: CustomEvent<{ id: number }>) {
 		await fetch('http://localhost:3000/customers/remove', {
 			method: 'POST',
 			headers: {
@@ -99,7 +99,7 @@
 			<CustomerList
 				name={'登録ユーザー'}
 				{users}
-				on:removeuser={removeUser}
+				on:removeCustomer={removeCustomer}
 			/>
 		</div>
 	</div>

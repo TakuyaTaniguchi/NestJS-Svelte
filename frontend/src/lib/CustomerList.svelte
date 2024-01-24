@@ -4,9 +4,9 @@
 	export let name: string;
 	export let users: Customer[];
 
-	const dispatch = createEventDispatcher<{ removeuser: { id: number } }>();
-	function removeuser(id: number) {
-		dispatch('removeuser', {
+	const dispatch = createEventDispatcher<{ removeCustomer: { id: number } }>();
+	function removeCustomer(id: number) {
+		dispatch('removeCustomer', {
 			id: id
 		});
 	}
@@ -29,7 +29,7 @@
 								<button
 									type="button"
 									on:click={() => {
-										removeuser(user.id);
+										removeCustomer(user.id);
 									}}>remove</button
 								>
 							</div>
