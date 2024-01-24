@@ -38,7 +38,7 @@ export class CustomerController {
   addCustomer(@Body() customer: ICustomer) {
     // dbにCustomerを追加する
     // curl -X POST -H "Content-Type: application/json" -d '{"id":101, "firstName":"hanako","lastName":"sato","isActive":true }' http://localhost:3000/customers/add
-    // customer['user'].firstName アクセスしたい構造が違うので治す
+    // customer['customer'].firstName アクセスしたい構造が違うので治す
     this.customerService.add({
       id: customer['customer'].id, //とりあえず
       firstName: customer['customer'].firstName,

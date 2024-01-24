@@ -5,18 +5,18 @@
 	let id: number;
 	let firstName: string;
 	let lastName: string;
-	export let users: Customer[];
+	export let customers: Customer[];
 
 	onMount(async () => {
-		id = Number($page.params.userId);
+		id = Number($page.params.customerId);
 		const response = await fetch(`http://localhost:3000/customers/${id}`);
 		const data = await response.json();
-		users = data;
-		firstName = users[0].firstName;
-		lastName = users[0].lastName;
+		customers = data;
+		firstName = customers[0].firstName;
+		lastName = customers[0].lastName;
 	});
 
-	async function updateUser() {
+	async function updateCustomer() {
 		await fetch('http://localhost:3000/customers/update', {
 			method: 'POST',
 			headers: {
@@ -29,15 +29,15 @@
 
 <div>
 	<div>
-		<h2>user 詳細ぺーじ</h2>
+		<h2>customer 詳細ぺーじ</h2>
 		<div>
 			<table>
 				<thead>
-					{#if users}
-						{#each users as user}
+					{#if customers}
+						{#each customers as customer}
 							<div>
-								<label for="inputId">:inputId {user.id}</label>
-								<input type="number" name="inputId" id="inputId" value={user.id} disabled />
+								<label for="inputId">:inputId {customer.id}</label>
+								<input type="number" name="inputId" id="inputId" value={customer.id} disabled />
 							</div>
 							<div class="form-example">
 								<label for="firstName">Enter your firstName: </label>
@@ -45,7 +45,7 @@
 									type="text"
 									name="firstName"
 									id="firstName"
-									value={user.firstName}
+									value={customer.firstName}
 									on:change={(event) => {
 										firstName = event.target.value;
 									}}
@@ -57,7 +57,7 @@
 									type="text"
 									name="lastname"
 									id="lastname"
-									value={user.lastName}
+									value={customer.lastName}
 									on:change={(event) => {
 										lastName = event.target.value;
 									}}
@@ -71,7 +71,7 @@
 		<button
 			type="button"
 			on:click={() => {
-				updateUser();
+				updateCustomer();
 			}}>保存する</button
 		>
 	</div>
