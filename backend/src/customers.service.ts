@@ -11,11 +11,6 @@ export class CustomerService {
     @InjectRepository(Customer)
     private customerRepository: Repository<Customer>,
   ) {}
-  // private readonly customers: Customer[] = [];
-
-  // create(customer:Customer) {
-  //     this.customers.push(customer)
-  // }
 
   /**
    *

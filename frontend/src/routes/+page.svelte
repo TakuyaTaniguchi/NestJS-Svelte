@@ -4,7 +4,7 @@
 	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 
-	let users: Customer[];
+	let customers: Customer[];
 	let id: number;
 	let firstName: string;
 	let lastName: string;
@@ -12,7 +12,7 @@
 	onMount(async () => {
 		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as Customer[];
-		users = data;
+		customers = data;
 	});
 
 	async function add(customer: Customer) {		
@@ -26,7 +26,7 @@
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
 		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as Customer[];
-		users = data;
+		customers = data;
 	}
 
 	async function removeCustomer(event: CustomEvent<{ id: number }>) {
@@ -40,7 +40,7 @@
 		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
 		const response = await fetch('http://localhost:3000/customers');
 		const data = (await response.json()) as Customer[];
-		users = data;
+		customers = data;
 	}
 </script>
 
@@ -95,7 +95,7 @@
 		<div class="inner">
 			<CustomerList
 				name={'登録ユーザー'}
-				{users}
+				{customers}
 				on:removeCustomer={removeCustomer}
 			/>
 		</div>
