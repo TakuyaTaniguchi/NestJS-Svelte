@@ -3,6 +3,7 @@
 	import CustomerList from '$lib/CustomerList.svelte';
 	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
+	import { apiCLient } from '../lib/core/index'
 
 	let customers: Customer[];
 	let id: number;
@@ -10,9 +11,8 @@
 	let lastName: string;
 
 	onMount(async () => {
-		const response = await fetch('http://localhost:3000/customers');
-		const data = (await response.json()) as Customer[];
-		customers = data;
+		const response = await apiCLient('customers', 'GET');
+		customers = response as Customer[];
 	});
 
 	async function add(customer: Customer) {		
