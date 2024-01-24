@@ -56,7 +56,7 @@ export class CustomerService {
    * customerを編集する
    */
 
-  async edit(customer: ICustomer) {
+  async update(customer: ICustomer) {
     await this.customerRepository.update(
       { id: customer.id },
       {

@@ -31,7 +31,6 @@ export class CustomerController {
 
   @Get('users')
   getCustomer() {
-    // curl http://localhost:3000/customers/sample
     return this.customerService.find();
   }
 
@@ -40,9 +39,9 @@ export class CustomerController {
     return this.customerService.findUser(id);
   }
 
-  @Post('edit')
-  editCustomer(@Body() customer: ICustomer) {
-    this.customerService.edit({
+  @Post('update')
+  updateCustomer(@Body() customer: ICustomer) {
+    this.customerService.update({
       id: customer.id, //とりあえず
       firstName: customer.firstName,
       lastName: customer.lastName,

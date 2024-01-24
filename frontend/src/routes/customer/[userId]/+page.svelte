@@ -17,7 +17,7 @@
 	});
 
 	async function updateUser() {
-		await fetch('http://localhost:3000/customers/edit', {
+		await fetch('http://localhost:3000/customers/update', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
