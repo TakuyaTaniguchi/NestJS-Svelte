@@ -8,6 +8,7 @@ import { DataSource } from 'typeorm';
 import { runSeeders } from 'typeorm-extension';
 import { TypeOrmConfigService } from './data-source';
 import { ConfigModule } from '@nestjs/config';
+const initialized = process.argv.includes('--initialized');
 
 @Global()
 @Module({
@@ -19,10 +20,12 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
       dataSourceFactory: async (options) => {
-        const dataSource = new DataSource(options);
-        await dataSource.initialize();
-        await runSeeders(dataSource);
-        return dataSource;
+          const dataSource = new DataSource(options);
+          if(initialized){
+            await dataSource.initialize();
+            await runSeeders(dataSource);
+          }
+          return dataSource;
       },
     }),
     CustomerModule,
