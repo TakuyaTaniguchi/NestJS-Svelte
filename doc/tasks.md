@@ -29,3 +29,4 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] uuid入れる 
 - [ ] ER図とかちゃんと書く
 - [ ] seed作る
+- [ ] user contloer  model  service moduleを作る 
