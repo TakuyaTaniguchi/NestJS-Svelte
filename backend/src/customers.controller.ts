@@ -27,9 +27,9 @@ export class CustomerController {
   getCustomer(@Param('id') id: number) {
 
     // idがnumberでない場合はエラーを返す
-    if (typeof id !== 'number') {
-      throw new HttpException('Bad request idが正しくありません', HttpStatus.BAD_REQUEST);
-    }
+    // if (typeof id !== 'number') {
+    //   throw new HttpException('Bad request idが正しくありません', HttpStatus.BAD_REQUEST);
+    // }
     try {
       return this.customerService.findCustomer(id);
     } catch (error) {
