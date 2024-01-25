@@ -1,15 +1,17 @@
 import { Customer } from './customer.entity';
-import { User } from './entity/user.entity'
+import { User } from './entity/user.entity';
 import { ConfigService } from '@nestjs/config';
 
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
+import { SeederOptions } from 'typeorm-extension';
+import UserSeeder from './seeds/user.seeder';
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   constructor(private configService: ConfigService) {}
 
-  public createTypeOrmOptions(): TypeOrmModuleOptions {
+  public createTypeOrmOptions(): TypeOrmModuleOptions & SeederOptions {
     return {
       type: 'mysql',
       host: 'localhost',
@@ -17,8 +19,9 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       username: this.configService.get<string>('MYSQL_ROOT_USER'),
       password: this.configService.get<string>('MYSQL_ROOT_PASSWORD'),
       database: this.configService.get<string>('MYSQL_DATABASE'),
-      entities: [Customer,User], // use entites
+      entities: [Customer, User], // use entites
       synchronize: true,
+      seeds: [UserSeeder],
     };
   }
 }

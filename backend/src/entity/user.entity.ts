@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { IUser } from '../interfaces/users.interface';
 @Entity()
 export class User implements IUser {
@@ -17,15 +23,18 @@ export class User implements IUser {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ default: '' })
   password_digest: string;
 
-  @Column()
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   readonly created_at: Date;
 
-  @Column()
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   readonly updated_at: Date;
-
 }
-
-

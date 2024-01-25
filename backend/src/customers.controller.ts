@@ -2,16 +2,13 @@ import {
   Controller,
   Get,
   Post,
-  Query,
   Param,
   Body,
-  Render,
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
 import { ICustomer } from './interfaces/customers.interface';
 import { CustomerService } from './customers.service';
-import crypto from 'crypto'
 
 // https://zenn.dev/kisihara_c/books/nest-officialdoc-jp/viewer/overview-controllers#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9
 
@@ -21,12 +18,11 @@ export class CustomerController {
 
   @Get()
   async getCustomers() {
-      return await this.customerService.find();
+    return await this.customerService.find();
   }
 
   @Get(':id')
   getCustomer(@Param('id') id: number) {
-
     // idがnumberでない場合はエラーを返す
     // if (typeof id !== 'number') {
     //   throw new HttpException('Bad request idが正しくありません', HttpStatus.BAD_REQUEST);
@@ -35,7 +31,7 @@ export class CustomerController {
       return this.customerService.findCustomer(id);
     } catch (error) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    } 
+    }
   }
 
   @Post('update')
