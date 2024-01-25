@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: Order example
+title: User
 ---
 erDiagram
     USER {
