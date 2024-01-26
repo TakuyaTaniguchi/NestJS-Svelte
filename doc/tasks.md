@@ -33,13 +33,8 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 実装見直すのも良い
 - https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/package.json#L25C5-L25C66
 - [x] user contloer  model  service moduleを作る 
-- [x] アイデア
-ユーザー　本　感想を登録する
-本に対してユーザーの感想が連なる仕組みで、主体は本になっている。 
-// 
 
 
 - [] TypeORM-extentisonでzenn書く
 - [] Obsidianのテーマを作る
   できればPR作る
-- user周りの調整をしてユーザに紐づく読書感想文をmdで登録できるようにする
