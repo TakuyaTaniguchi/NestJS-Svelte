@@ -20,12 +20,12 @@ const initialized = process.argv.includes('--initialized');
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
       dataSourceFactory: async (options) => {
-          const dataSource = new DataSource(options);
-          if(initialized){
-            await dataSource.initialize();
-            await runSeeders(dataSource);
-          }
-          return dataSource;
+        const dataSource = new DataSource(options);
+        if (initialized) {
+          await dataSource.initialize();
+          await runSeeders(dataSource);
+        }
+        return dataSource;
       },
     }),
     CustomerModule,

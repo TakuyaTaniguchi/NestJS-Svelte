@@ -24,6 +24,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   - タイトル
   - 日付
   - 感想文
+  - マークダウンで記入
 - [ ] stripeとか決済システム入れてみる
 - [ ] authとか入れてみる、
 - [ ] uuid入れる 
@@ -32,3 +33,10 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 実装見直すのも良い
 - https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/package.json#L25C5-L25C66
 - [ ] user contloer  model  service moduleを作る 
+
+
+
+- [] TypeORM-extentisonでzenn書く
+- [] Obsidianのテーマを作る
+  できればPR作る
+- user周りの調整をしてユーザに紐づく読書感想文をmdで登録できるようにする

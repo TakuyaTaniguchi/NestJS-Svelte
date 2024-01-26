@@ -1,4 +1,4 @@
-import { Customer } from './customer.entity';
+import { Customer } from './entity/customer.entity';
 import { User } from './entity/user.entity';
 import { ConfigService } from '@nestjs/config';
 
