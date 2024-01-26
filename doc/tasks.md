@@ -36,7 +36,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [x] アイデア
 ユーザー　本　感想を登録する
 本に対してユーザーの感想が連なる仕組みで、主体は本になっている。 
-// https://www.googleapis.com/books/v1/volumes?q=author:歌丸
+// 
 
 
 - [] TypeORM-extentisonでzenn書く
