@@ -3,6 +3,7 @@ import { LoggerMiddleware } from './logger.middleware';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CustomerModule } from './modules/customers.module';
+import { UserModule } from './modules/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { runSeeders } from 'typeorm-extension';
@@ -29,6 +30,7 @@ const initialized = process.argv.includes('--initialized');
       },
     }),
     CustomerModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
