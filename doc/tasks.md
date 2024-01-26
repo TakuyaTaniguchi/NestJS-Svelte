@@ -32,7 +32,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] seed作る
 実装見直すのも良い
 - https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/package.json#L25C5-L25C66
-- [ ] user contloer  model  service moduleを作る 
+- [x] user contloer  model  service moduleを作る 
 
 
 
