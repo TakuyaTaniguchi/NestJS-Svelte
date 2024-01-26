@@ -7,6 +7,14 @@
 cd backend
 pnpm install
 ```
+
+seed
+```
+cd backend
+pnpm start:dev -- --initialized
+
+```
+
 #### frontend
 ```
 cd frontend
