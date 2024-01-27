@@ -50,7 +50,7 @@
 <div>
 	<Header title="+pageSvelte" />
 	<Button on:click={() => clicked++} class="myClass">
-		<Label>With a Class</Label>
+		<Label>With a Class {clicked}</Label>
 	  </Button>
 	<div class="container">
 		<div class="inner">
