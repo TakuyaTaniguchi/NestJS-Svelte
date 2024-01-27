@@ -5,6 +5,9 @@
 	import { onMount } from 'svelte';
 	import { apiCLient } from '../lib/core/index'
 
+	import Button, { Label } from '@smui/button';
+
+	let clicked = 0;
 	let customers: Customer[];
 	let id: number;
 	let firstName: string;
@@ -46,6 +49,9 @@
 
 <div>
 	<Header title="+pageSvelte" />
+	<Button on:click={() => clicked++} class="myClass">
+		<Label>With a Class</Label>
+	  </Button>
 	<div class="container">
 		<div class="inner">
 			<div class="form-example">
