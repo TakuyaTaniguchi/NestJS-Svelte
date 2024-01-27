@@ -22,10 +22,10 @@ const initialized = process.argv.includes('--initialized');
       useClass: TypeOrmConfigService,
       dataSourceFactory: async (options) => {
         const dataSource = new DataSource(options);
-        if (initialized) {
-          await dataSource.initialize();
-          await runSeeders(dataSource);
-        }
+        // if (initialized) {
+        //   await dataSource.initialize();
+        //   await runSeeders(dataSource);
+        // }
         return dataSource;
       },
     }),
