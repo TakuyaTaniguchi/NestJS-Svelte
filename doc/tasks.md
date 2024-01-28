@@ -13,6 +13,8 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] Nestの強みのAPIdocを作る 
 - [ ] エラーコントロール
 - [ ] テスト書いたり
+  - [ ] backend
+  - [ ] frontend
 - [ ] authつくったり    
 - [ ] デザイン触ったり
   https://sveltematerialui.com/?ref=madewithsvelte.com
