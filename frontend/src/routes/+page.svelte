@@ -4,11 +4,17 @@
 	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 	import { apiCLient } from '../lib/core/index'
+	import Textfield from '$lib/components/Textfield.svelte';
+	import {} from '$lib/components/Button.svelte'
 
 	import Button, { Label } from '@smui/button';
 	import Drawer, { AppContent, Content } from '@smui/drawer';
  	import List, { Item, Text } from '@smui/list';
- 
+// 	 import ImageList, {
+//     ImageAspectContainer,
+//     Image,
+//     Supporting,
+//   } from '@smui/image-list';
 	let clicked = 0 as number | string;
 	let customers: Customer[];
 	let id: number;
@@ -54,6 +60,21 @@
 	<Button on:click={() => clicked++} class="myClass">
 		<Label>With a Class {clicked}</Label>
 	  </Button> -->
+	  <!-- <ImageList class="my-image-list-standard">
+		{#each Array(15) as _unused, i}
+		  <Item>
+			<ImageAspectContainer>
+			  <Image
+				src="https://placehold.co/190x190?text=square"
+				alt="Image {i + 1}"
+			  />
+			</ImageAspectContainer>
+			<Supporting>
+			  <Label>Image {i + 1}</Label>
+			</Supporting>
+		  </Item>
+		{/each}
+	  </ImageList> -->
 	  <div class="drawer-container">
 		<Drawer>
 		  <Content>
@@ -97,7 +118,13 @@
 			App content.
 			<br />
 			{#if clicked === 'Gray Kittens'}
-				Gray Kittens
+				<Textfield
+					type="text"
+					value="test"
+					dirty={false}
+					invalid={false}
+					disabled={false}
+				></Textfield>
 			{/if}
 			<pre class="status">Clicked: {clicked}</pre>
 		  </main>
