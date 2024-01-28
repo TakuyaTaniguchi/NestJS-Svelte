@@ -8,6 +8,12 @@ devDependencies:
   '@smui/button':
     specifier: 7.0.0-beta.16
     version: 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
+  '@smui/drawer':
+    specifier: 7.0.0-beta.16
+    version: 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
+  '@smui/list':
+    specifier: 7.0.0-beta.16
+    version: 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
   '@sveltejs/adapter-auto':
     specifier: ^3.0.0
     version: 3.1.0(@sveltejs/kit@2.3.2)
@@ -425,6 +431,23 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /@material/drawer@14.0.0:
+    resolution: {integrity: sha512-VPrxMIhbkXVbfH7aMFV+Um0tjOVrU/Y65X2hWsVdmjASadE8C5UYjIE3vjL1DM1M+zIa3qZZRUWqz0j1zqbr3w==}
+    dependencies:
+      '@material/animation': 14.0.0
+      '@material/base': 14.0.0
+      '@material/dom': 14.0.0
+      '@material/elevation': 14.0.0
+      '@material/feature-targeting': 14.0.0
+      '@material/list': 14.0.0
+      '@material/ripple': 14.0.0
+      '@material/rtl': 14.0.0
+      '@material/shape': 14.0.0
+      '@material/theme': 14.0.0
+      '@material/typography': 14.0.0
+      tslib: 2.6.2
+    dev: true
+
   /@material/elevation@14.0.0:
     resolution: {integrity: sha512-Di3tkxTpXwvf1GJUmaC8rd+zVh5dB2SWMBGagL4+kT8UmjSISif/OPRGuGnXs3QhF6nmEjkdC0ijdZLcYQkepw==}
     dependencies:
@@ -448,6 +471,21 @@ packages:
       '@material/dom': 14.0.0
       '@material/feature-targeting': 14.0.0
       '@material/rtl': 14.0.0
+    dev: true
+
+  /@material/list@14.0.0:
+    resolution: {integrity: sha512-AFaBGV9vQyfnG8BT2R3UGVdF5w2SigQqBH+qbOSxQhk4BgVvhDfJUIKT415poLNMdnaDtcuYz+ZWvVNoRDaL7w==}
+    dependencies:
+      '@material/base': 14.0.0
+      '@material/density': 14.0.0
+      '@material/dom': 14.0.0
+      '@material/feature-targeting': 14.0.0
+      '@material/ripple': 14.0.0
+      '@material/rtl': 14.0.0
+      '@material/shape': 14.0.0
+      '@material/theme': 14.0.0
+      '@material/typography': 14.0.0
+      tslib: 2.6.2
     dev: true
 
   /@material/ripple@14.0.0:
@@ -662,6 +700,32 @@ packages:
     resolution: {integrity: sha512-PpqhIAWtE6ZZ6XyIkzHGXdMk+iE4QLFdzYXf20cG13O/0bFjOV5ySk2g+Vq2ZWRJawIjMaPcekbCkkowna4vgg==}
     dependencies:
       '@material/dom': 14.0.0
+      svelte2tsx: 0.6.27(svelte@4.2.8)(typescript@5.3.3)
+    transitivePeerDependencies:
+      - svelte
+      - typescript
+    dev: true
+
+  /@smui/drawer@7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3):
+    resolution: {integrity: sha512-usU4ec00IQ0e3OCwLftmW1aHr/CQpzRVr5gqY5NKsc+GGnTNjmDs2eM2SVKyOLojKk6iskguz2/jlUBuh/YUkg==}
+    dependencies:
+      '@material/dom': 14.0.0
+      '@material/drawer': 14.0.0
+      '@smui/common': 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
+      svelte2tsx: 0.6.27(svelte@4.2.8)(typescript@5.3.3)
+    transitivePeerDependencies:
+      - svelte
+      - typescript
+    dev: true
+
+  /@smui/list@7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3):
+    resolution: {integrity: sha512-efWNwuDKwBKmbeqJV3MB9uWZFMtaJr6TZ2RiPzeatKtW9+4h2wzIK//wkg71FcrU+uRZnEuQHmGnjIwmwFyE3w==}
+    dependencies:
+      '@material/dom': 14.0.0
+      '@material/feature-targeting': 14.0.0
+      '@material/list': 14.0.0
+      '@smui/common': 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
+      '@smui/ripple': 7.0.0-beta.16(svelte@4.2.8)(typescript@5.3.3)
       svelte2tsx: 0.6.27(svelte@4.2.8)(typescript@5.3.3)
     transitivePeerDependencies:
       - svelte
