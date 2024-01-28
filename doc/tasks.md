@@ -9,6 +9,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] biomeに変えてみる？ 
 - [ ] prismaとか入れてみる？
 - [ ] ciで実行する
+  - [ ] lint
  - コミットと同時にformatする 
 - [ ] Nestの強みのAPIdocを作る 
 - [ ] エラーコントロール
