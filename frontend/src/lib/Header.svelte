@@ -8,10 +8,11 @@
 
 <style>
 	.title {
-		padding: 0 16px;
+		padding: 16px;
+		background-color: black;
+		color: #2ebd59;
 	}
 	h1 {
 		font-weight: bold;
-		color: turquoise;
 	}
 </style>
