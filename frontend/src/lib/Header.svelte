@@ -17,6 +17,7 @@
 		color: #1cdc63;
 	}
 	h1 {
+		font-size: 36px;
 		font-weight: bold;
 	}
 
