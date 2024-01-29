@@ -5,7 +5,7 @@
 </script>
 
 <div class="title">
-	<Button on:click={() => clicked++} class="myClass">
+	<Button on:click={() => clicked++}>
 		<Label>{label}</Label>
 	</Button>
 </div>

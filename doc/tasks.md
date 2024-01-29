@@ -41,3 +41,4 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   できればPR作る
 - [] spotifyのAPIを申請取得する
 - [] spotiyのAPIを学ぶ
+- [] 現代のリセットcss

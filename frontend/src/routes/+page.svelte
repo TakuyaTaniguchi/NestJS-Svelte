@@ -55,7 +55,7 @@
 </script>
 
 <div>
-	<Header title="Spotify Search" />
+	<Header title="Search" />
 	  <!-- <ImageList class="my-image-list-standard">
 		{#each Array(15) as _unused, i}
 		  <Item>
