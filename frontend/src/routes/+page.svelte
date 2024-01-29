@@ -5,9 +5,8 @@
 	import { onMount } from 'svelte';
 	import { apiCLient } from '../lib/core/index'
 	import Textfield from '$lib/components/Textfield.svelte';
-	import {} from '$lib/components/Button.svelte'
+	import Button from '$lib/components/Button.svelte'
 
-	import Button, { Label } from '@smui/button';
 	import Drawer, { AppContent, Content } from '@smui/drawer';
  	import List, { Item, Text } from '@smui/list';
 // 	 import ImageList, {
@@ -15,7 +14,7 @@
 //     Image,
 //     Supporting,
 //   } from '@smui/image-list';
-	let clicked = 0 as number | string;
+	let status:string = 'Home';
 	let customers: Customer[];
 	let id: number;
 	let firstName: string;
@@ -81,33 +80,15 @@
 			<List>
 			  <Item
 				href="javascript:void(0)"
-				on:click={() => (clicked = 'Gray Kittens')}
+				on:click={() => (status = 'Home')}
 			  >
-				<Text>Gray Kittens</Text>
+				<Text>Home</Text>
 			  </Item>
 			  <Item
 				href="javascript:void(0)"
-				on:click={() => (clicked = 'A Space Rocket')}
+				on:click={() => (status = 'User')}
 			  >
-				<Text>A Space Rocket</Text>
-			  </Item>
-			  <Item
-				href="javascript:void(0)"
-				on:click={() => (clicked = '100 Pounds of Gravel')}
-			  >
-				<Text>100 Pounds of Gravel</Text>
-			  </Item>
-			  <Item
-				href="javascript:void(0)"
-				on:click={() => (clicked = 'All of the Shrimp')}
-			  >
-				<Text>All of the Shrimp</Text>
-			  </Item>
-			  <Item
-				href="javascript:void(0)"
-				on:click={() => (clicked = 'A Planet with a Mall')}
-			  >
-				<Text>A Planet with a Mall</Text>
+				<Text>User</Text>
 			  </Item>
 			</List>
 		  </Content>
@@ -117,7 +98,8 @@
 		  <main class="main-content">
 			App content.
 			<br />
-			{#if clicked === 'Gray Kittens'}
+			{#if status === 'Home'}
+				<h2>PAGE: {status}</h2>
 				<Textfield
 					type="text"
 					value="test"
@@ -125,8 +107,19 @@
 					invalid={false}
 					disabled={false}
 				></Textfield>
+				<Button label="SUBMIT"></Button>
 			{/if}
-			<pre class="status">Clicked: {clicked}</pre>
+			{#if status === 'User'}
+				<h2>PAGE: {status}</h2>
+				<Textfield
+					type="text"
+					value="test"
+					dirty={false}
+					invalid={false}
+					disabled={false}
+				></Textfield>
+				<Button label="SUBMIT"></Button>
+			{/if}
 		  </main>
 		</AppContent>
 	  </div>
