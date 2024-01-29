@@ -20,3 +20,7 @@ pnpm start:dev -- --initialized
 cd frontend
 pnpm install
 ```
+
+#### App
+
+<img src="./doc/app.png">
