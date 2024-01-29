@@ -55,10 +55,7 @@
 </script>
 
 <div>
-	<!-- <Header title="+pageSvelte" />
-	<Button on:click={() => clicked++} class="myClass">
-		<Label>With a Class {clicked}</Label>
-	  </Button> -->
+	<Header title="Spotify Search" />
 	  <!-- <ImageList class="my-image-list-standard">
 		{#each Array(15) as _unused, i}
 		  <Item>
