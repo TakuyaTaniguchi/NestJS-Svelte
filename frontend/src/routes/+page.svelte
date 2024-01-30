@@ -1,19 +1,14 @@
 <script lang="ts">
 	import Header from '$lib/Header.svelte';
-	import CustomerList from '$lib/CustomerList.svelte';
 	import { type Customer } from '$lib/types/index';
 	import { onMount } from 'svelte';
 	import { apiCLient } from '../lib/core/index'
 	import Textfield from '$lib/components/Textfield.svelte';
 	import Button from '$lib/components/Button.svelte'
+	import Imagelist from '$lib/components/Imagelist.svelte';
 
 	import Drawer, { AppContent, Content } from '@smui/drawer';
  	import List, { Item, Text } from '@smui/list';
-// 	 import ImageList, {
-//     ImageAspectContainer,
-//     Image,
-//     Supporting,
-//   } from '@smui/image-list';
 	let status:string = 'Home';
 	let customers: Customer[];
 	let id: number;
@@ -56,21 +51,6 @@
 
 <div>
 	<Header title="Search" />
-	  <!-- <ImageList class="my-image-list-standard">
-		{#each Array(15) as _unused, i}
-		  <Item>
-			<ImageAspectContainer>
-			  <Image
-				src="https://placehold.co/190x190?text=square"
-				alt="Image {i + 1}"
-			  />
-			</ImageAspectContainer>
-			<Supporting>
-			  <Label>Image {i + 1}</Label>
-			</Supporting>
-		  </Item>
-		{/each}
-	  </ImageList> -->
 	  <div class="drawer-container">
 		<Drawer>
 		  <Content>
@@ -97,6 +77,7 @@
 			<br />
 			{#if status === 'Home'}
 				<h2>PAGE: {status}</h2>
+				<Imagelist></Imagelist>
 				<Textfield
 					type="text"
 					value="test"
