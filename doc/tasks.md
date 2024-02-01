@@ -37,9 +37,9 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 
 - [x] user contloer  model  service moduleを作る 
 - [] TypeORM-extentisonでzenn書く
-- [] Obsidianのテーマを作る
+- [x] Obsidianのテーマを作る
   できればPR作る
-- [] spotifyのAPIを申請取得する
+- [x] spotifyのAPIを申請取得する
 - [] spotiyのAPIを学ぶ
 - []アイナナの曲を取得する 
 - [] 現代のリセットcss
