@@ -11,7 +11,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
 - [ ] ciで実行する
   - [ ] lint
  - コミットと同時にformatする 
-- [ ] Nestの強みのAPIdocを作る 
+- [x] Nestの強みのAPIdocを作る 
 - [ ] エラーコントロール
 - [ ] テスト書いたり
   - [ ] backend
