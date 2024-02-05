@@ -41,6 +41,6 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   できればPR作る
 - [x] spotifyのAPIを申請取得する
 - [] spotiyのAPIを学ぶ
-- []アイナナの曲を取得する 
+- []アイナナの曲を取得してDBに保存する
 - [] 現代のリセットcss
 - [] ログインページを作る
