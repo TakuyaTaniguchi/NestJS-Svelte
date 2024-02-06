@@ -21,7 +21,7 @@ async function bootstrap() {
   SwaggerModule.setup('api',app,document)
 
   app.enableCors(corsOptionsDelegate);
-  await app.listen(4000);
+  await app.listen(3000);
   app.useStaticAssets(join(__dirname, '../src', 'public'));
   app.setBaseViewsDir(join(__dirname, '../src', 'views'));
   app.setViewEngine('hbs');

@@ -36,7 +36,7 @@ https://github.com/LandazuriPaul/nest-react/blob/main/packages/server/env/exampl
   - https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/package.json#L25C5-L25C66
 
 - [x] user contloer  model  service moduleを作る 
-- [] TypeORM-extentisonでzenn書く
+- [x] TypeORM-extentisonでzenn書く
 - [x] Obsidianのテーマを作る
   できればPR作る
 - [x] spotifyのAPIを申請取得する
