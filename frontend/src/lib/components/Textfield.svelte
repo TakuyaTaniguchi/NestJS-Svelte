@@ -1,10 +1,20 @@
 <script lang="ts">
 	import Textfield from '@smui/textfield';
+	import { createEventDispatcher } from 'svelte';
+
 	export let dirty: boolean;
 	export let invalid: boolean;
 	export let disabled: boolean;
-	export let value: string | null;
+	export let value: string | number | null;
 	export let type: string | undefined
+
+	const dispatch = createEventDispatcher<{ inputValue: { inputValue: number | string, formType: string } }>();
+	function inputValue(value: number | string,formType: string) {
+		dispatch('inputValue', {
+			inputValue: value,
+			formType: formType
+		});
+	}
 </script>
 
 <div class="title">
@@ -15,10 +25,9 @@
 		updateInvalid
 		bind:value
 		style="min-width: 250px;"
-		input$autocomplete="email"
-		on:InputEvent={() => (
-			console.log('InputEvent')
-		)}
+		on:input={(e) => {
+			inputValue(e.target.value,'name');
+		}}
 		withTrailingIcon={!disabled}
 	>
   </Textfield>

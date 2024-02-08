@@ -14,11 +14,22 @@
 	let id: number;
 	let firstName: string;
 	let lastName: string;
+	let data = {
+		// ログインに必要なデータフォームを作る
+		'name': '登録ユーザー' as string | number
+	}
+
 
 	onMount(async () => {
 		const response = await apiCLient('customers', 'GET');
 		customers = response as Customer[];
 	});
+
+	function updateValue(event: CustomEvent<{ inputValue: number | string, formType: 'name'}>){
+
+		data[event.detail.formType] = event.detail.inputValue
+
+	}
 
 	async function add(customer: Customer) {		
 		await fetch('http://localhost:3000/customers/add', {
@@ -67,6 +78,12 @@
 			  >
 				<Text>User</Text>
 			  </Item>
+			  <Item
+				href="javascript:void(0)"
+				on:click={() => (status = 'Login')}
+			  >
+				<Text>Login</Text>
+			  </Item>
 			</List>
 		  </Content>
 		</Drawer>
@@ -97,6 +114,18 @@
 					disabled={false}
 				></Textfield>
 				<Button label="SUBMIT"></Button>
+			{/if}
+			{#if status === 'Login'}
+				<h2>PAGE: {status}</h2>
+				<Textfield
+					type="text"
+					value="{data.name}"
+					dirty={false}
+					invalid={false}
+					disabled={false}
+					on:inputValue={updateValue}
+				/>
+				
 			{/if}
 		  </main>
 		</AppContent>
