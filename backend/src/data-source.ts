@@ -12,7 +12,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   constructor(private configService: ConfigService) {}
 
   public createTypeOrmOptions(): TypeOrmModuleOptions & SeederOptions {
-    return {
+
+    const mysqlSettings = {
       type: 'mysql',
       host: 'localhost',
       port: 3306,
@@ -22,6 +23,22 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       entities: [Customer, User], // use entites
       synchronize: true,
       seeds: [UserSeeder],
+    };
+
+    const sqliteSettings = {
+      type: 'sqlite', // SQLiteを指定
+      database: this.configService.get<string>('SQLITE_DATABASE') || 'database.sqlite', // SQLite用のデータベースファイルを指定
+      entities: [Customer, User], // 使用するエンティティを指定
+      synchronize: true, // 開発中にのみ使用（本番環境では使用しない）
+      seeds: [UserSeeder], // 使用するシーダーを指定
+    }
+
+    return {
+      type: 'sqlite', // SQLiteを指定
+      database: this.configService.get<string>('SQLITE_DATABASE') || 'database.sqlite', // SQLite用のデータベースファイルを指定
+      entities: [Customer, User], // 使用するエンティティを指定
+      synchronize: true, // 開発中にのみ使用（本番環境では使用しない）
+      seeds: [UserSeeder], // 使用するシーダーを指定
     };
   }
 }
