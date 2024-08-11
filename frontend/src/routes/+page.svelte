@@ -6,6 +6,7 @@
 	import Textfield from '$lib/components/Textfield.svelte';
 	import Button from '$lib/components/Button.svelte'
 	import Imagelist from '$lib/components/Imagelist.svelte';
+	import CustomerList from '$lib/CustomerList.svelte';
 
 	import Drawer, { AppContent, Content } from '@smui/drawer';
  	import List, { Item, Text } from '@smui/list';
@@ -19,6 +20,7 @@
 		'name': '登録ユーザー' as string | number
 	}
 
+	console.log('data', data)
 
 	onMount(async () => {
 		const response = await apiCLient('customers', 'GET');
@@ -31,19 +33,23 @@
 
 	}
 
-	async function add(customer: Customer) {		
-		await fetch('http://localhost:3000/customers/add', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ customer })
-		});
-		await new Promise((resolve) => setTimeout(resolve, 1000)); //sever側でちゃんと実装する
-		const response = await fetch('http://localhost:3000/customers');
-		const data = (await response.json()) as Customer[];
-		customers = data;
-	}
+	async function add(customer: Customer) {
+		console.log('customer', customer);
+
+    await fetch('http://localhost:3000/customers/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(customer) // customerを直接JSONに変換して送信
+    });
+    console.log('customer', customer);
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000)); //server側でちゃんと実装する
+    const response = await fetch('http://localhost:3000/customers');
+    const data = (await response.json()) as Customer[];
+    customers = data;
+}
 
 	async function removeCustomer(event: CustomEvent<{ id: number }>) {
 		await fetch('http://localhost:3000/customers/remove', {
@@ -58,6 +64,7 @@
 		const data = (await response.json()) as Customer[];
 		customers = data;
 	}
+
 </script>
 
 <div>
@@ -70,7 +77,7 @@
 				href="javascript:void(0)"
 				on:click={() => (status = 'Home')}
 			  >
-				<Text>Home</Text>
+				<Text>Home:</Text>
 			  </Item>
 			  <Item
 				href="javascript:void(0)"
@@ -106,16 +113,30 @@
 			{/if}
 			{#if status === 'User'}
 				<h2>PAGE: {status}</h2>
+				発火
 				<Textfield
-					type="text"
-					value="test"
-					dirty={false}
-					invalid={false}
-					disabled={false}
-				></Textfield>
-				<Button label="SUBMIT"></Button>
+				type="text"
+				value={'test'}
+				dirty={false}
+				invalid={false}
+				disabled={false}
+			  />
+				<Button label="SUBMIT" on:clicked={()=>{
+					console.log('test')
+					add(
+						{
+							firstName: 'sumit太郎',
+							lastName: 'test'
+						}
+					);
+				}}></Button>
 			{/if}
 			{#if status === 'Login'}
+			<CustomerList
+			name={'登録ユーザー'}
+			{customers}
+			on:removeCustomer={removeCustomer}
+		/>
 				<h2>PAGE: {status}</h2>
 				<Textfield
 					type="text"
@@ -123,7 +144,6 @@
 					dirty={false}
 					invalid={false}
 					disabled={false}
-					on:inputValue={updateValue}
 				/>
 				
 			{/if}
@@ -176,13 +196,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="inner">
-			<CustomerList
-				name={'登録ユーザー'}
-				{customers}
-				on:removeCustomer={removeCustomer}
-			/>
-		</div>
+
 	</div> -->
 </div>
 
