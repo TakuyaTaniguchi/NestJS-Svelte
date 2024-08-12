@@ -17,7 +17,6 @@ import { UserService } from '../service/users.service';
 export class UserController {
   constructor(private userService: UserService) {}
 
-
   @Get()
   async getUser(@Query() id:number): Promise<IUser[]> {
     return this.userService.getUser(id);
